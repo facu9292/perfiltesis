@@ -22,73 +22,68 @@ header {
     margin-bottom: 20px;
 }
 
-div.volver {
-    color: white;
-    font-size: 40px;
-    height: auto;
-    width: auto;
-    position: absolute;
-    margin: 0 auto;
-    border-radius: 100px;
-    text-align: center;
+.header-icons {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente los iconos con el texto */
 }
 
-.volver:hover {
-    background-color: transparent; /* Nuevo color de fondo al pasar el cursor */
-    transform: translateY(-2px); /* Levanta el botón ligeramente */
+.header-icons a {
+    color: white; /* Color del icono */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    font-size: 1.5em; /* Tamaño del icono */
+    margin: 0 10px; /* Espacio entre los iconos y el título */
+}
+
+.header-icons a:hover {
+    color: #ff3b3b; /* Color del icono al pasar el ratón */
 }
 
 h1 {
     font-size: 2.5em;
     position: relative;
-    left: -400px;
+    left: -340px;
 }
 
-h2 {
-    font-size: 1.8em;
-    margin: 20px 0;
-}
-
-#profile, #orderHistory {
+.card {
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.8em;
     margin-bottom: 20px;
+    text-align: initial;
 }
 
-#profilePicContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+.input-container {
+    position: relative; /* Para posicionar el icono */
+    margin-bottom: 15px;
 }
 
-#profilePic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #ff6b6b;
-    margin-right: 20px;
-    object-fit: cover;
-}
-
-input[type="file"] {
-    display: none;
+.input-container i {
+    position: absolute;
+    left: 10px; /* Posiciona el icono */
+    top: 10px; /* Posiciona el icono */
+    color: #ff6b6b;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    margin-left: 40px; /* Espacio para el icono */
 }
 
 input[type="text"],
 input[type="email"],
-input[type="tel"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+input[type="tel"] {
+    width: calc(100% - 40px); /* Ajusta el ancho para el icono */
+    padding: 10px 10px; /* Espacio interno */
+    margin-left: 40px; /* Espacio para el icono */
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s ease;
@@ -96,15 +91,9 @@ textarea {
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="tel"]:focus,
-textarea:focus {
+input[type="tel"]:focus {
     border-color: #ff6b6b;
     outline: none;
-}
-
-textarea {
-    height: 100px;
-    resize: none;
 }
 
 button {
@@ -116,79 +105,62 @@ button {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    width: 100%; /* Botón de ancho completo */
 }
 
 button:hover {
     background-color: #ff3b3b;
 }
 
-#orderHistory {
-    max-width: 800px;
-    margin: auto;
-}
-
-#orders {
-    list-style: none;
-    padding: 0;
-}
-
-#orders li {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-}
-
-#orders li:hover {
-    background: #e7f3ff;
-}
-
 /* Media Queries para Responsividad */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 1.8em; /* Reducir el tamaño del título principal */
-        position: static; /* Eliminar la posición relativa */
-        text-align: center; /* Centrar el título */
-        left: 0; /* Restablecer la posición */
-    }
-
     header {
-        padding: 15px; /* Ajustar el padding del encabezado */
+        padding: 15px; /* Menos padding en móviles */
     }
 
-    div.volver {
-        font-size: 30px; /* Reducir el tamaño del texto en el botón */
+    .header-icons a {
+        font-size: 1.2em; /* Reducir el tamaño del icono en móviles */
     }
 
-    #profilePicContainer {
-        flex-direction: column; /* Apilar el contenedor de la imagen de perfil */
-        align-items: center; /* Centrar el contenido */
+    h1 {
+        font-size: 2em; /* Reducir tamaño del título en móviles */
     }
 
-    #profilePic {
-        margin-right: 0; /* Eliminar margen derecho */
-        margin-bottom: 10px; /* Añadir margen inferior */
+    .card {
+        padding: 15px; /* Menos padding en móviles */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Reducir tamaño del subtítulo en móviles */
+    }
+
+    .input-container i {
+        top: 8px; /* Ajustar la posición del icono */
     }
 
     input[type="text"],
     input[type="email"],
-    input[type="tel"],
-    textarea {
-        padding: 8px; /* Reducir el padding de los campos */
+    input[type="tel"] {
+        width: calc(100% - 30px); /* Ajustar el ancho para icono en móviles */
+        margin-left: 30px; /* Espacio para el icono */
+    }
+
+    label {
+        margin-left: 30px; /* Ajustar espacio para el icono */
     }
 
     button {
-        padding: 8px 12px; /* Reducir el padding del botón */
+        font-size: 0.9em; /* Reducir tamaño del botón en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-icons {
+        flex-direction: column; /* Colocar iconos en columna en móviles pequeños */
+        align-items: flex-start; /* Alinear a la izquierda */
     }
 
-    #orderHistory {
-        margin: 0; /* Eliminar margen automático */
-        padding: 10px; /* Añadir padding para espacio */
-    }
-
-    #orders li {
-        font-size: 0.9em; /* Reducir tamaño de texto en la lista de pedidos */
+    .header-icons a {
+        margin: 5px 0; /* Espacio entre iconos en columna */
     }
 }
